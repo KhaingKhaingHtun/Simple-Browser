@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BrowserController">
+   <top>
+      <StackPane prefHeight="80.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="62.0" prefWidth="800.0" style="-fx-background-color: #FCE09B;">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="29.0" layoutY="28.0" onMouseClicked="#processBack" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/back-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="68.0" layoutY="28.0" onMouseClicked="#processForward" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/forward-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="107.0" layoutY="28.0" onMouseClicked="#processReload" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/refresh.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="675.0" layoutY="28.0" onMouseClicked="#processZoomIn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/zoom-in.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="tfURL" layoutX="150.0" layoutY="20.0" onKeyPressed="#processURL" prefHeight="40.0" prefWidth="500.0" promptText="Type URL" style="-fx-background-radius: 20; -fx-background-color: #DAD4B5;">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="712.0" layoutY="28.0" onMouseClicked="#processZoomOut" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/zoom-out.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutY="73.0" prefHeight="6.0" prefWidth="800.0" />
+               </children>
+            </AnchorPane>
+            <ProgressBar fx:id="loadingbar" prefHeight="10.0" prefWidth="800.0" progress="0.0" StackPane.alignment="TOP_LEFT">
+               <effect>
+                  <ColorAdjust hue="-0.4" saturation="-0.02" />
+               </effect></ProgressBar>
+         </children>
+      </StackPane>
+   </top>
+   <center>
+      <WebView fx:id="webView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
